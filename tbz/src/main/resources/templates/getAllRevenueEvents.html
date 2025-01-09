@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Get All Revenue Events</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Turtle Back Zoo</a>
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/index}">Home</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class ="container" >
+    <div class = "text-center">
+        <h1> Revenue Events List</h1>
+    </div>
+    <table class = "table table-striped table-bordered">
+        <thead class = "table-dark">
+        <tr>
+            <th> Re_ID </th>
+            <th> Date </th>
+            <th> Revenue </th>
+            <th> Tickets_Sold </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each = "revenueEvent: ${getAllRevenueEvents}">
+            <td th:text = "${revenueEvent.re_ID}"></td>
+            <td th:text = "${revenueEvent.datecolumn}"></td>
+            <td th:text = "${revenueEvent.revenue}"></td>
+            <td th:text = "${revenueEvent.ticketsSold}"></td>
+            <td>
+                <a th:href = "@{/editRevenueEvent/{re_id}(re_id=${revenueEvent.re_ID})}"
+                   class = "btn btn-primary">Update</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

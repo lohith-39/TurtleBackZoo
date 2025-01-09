@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Attraction Revenue</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Turtle Back Zoo</a>
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/index}">Home</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class ="container" >
+    <div class = "text-center">
+        <h1> Attraction Revenue </h1>
+    </div>
+    <div class="button-container">
+        <form th:action="@{/averageRevenueForAttraction}" method="post">
+            <label>Enter Start Date</label><input type="date" class="form-control" name="startDate">
+            <label>Enter End Date</label><input type="date" class="form-control" name="endDate">
+            <button type="submit" class="btn btn-primary custom-button">Get Data</button>
+        </form>
+    </div>
+    <div th:if="${averageRevenue != null}">
+        <table class = "table table-striped table-bordered">
+            <thead class = "table-dark">
+            <tr>
+                <th> Attraction </th>
+                <th> TotalRevenue </th>
+            </tr>
+
+            <tbody>
+            <tr th:each = "a: ${averageRevenue}">
+                <td th:text = "${a.attraction}"></td>
+                <td th:text = "${a.averageRevenue}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

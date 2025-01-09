@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Employee</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Turtle Back Zoo</a>
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/index}">Home</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class = "container">
+    <div class = "row">
+        <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class = "text-center"> Create New Employee </h1>
+            <div class = "card-body">
+                <form th:action="@{/createEmployee}" method="post">
+                    <div class ="form-group">
+                        <label> Start Date </label>
+                        <input type = "date" name = "startDate" class = "form-control" placeholder="Enter Start Date"/>
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Job Type </label>
+                        <input type = "text" name = "jobType" class = "form-control" placeholder="Enter Job Type"/>
+                    </div>
+
+                    <div class ="form-group">
+                        <label> First </label>
+                        <input type = "text" name = "first" class = "form-control" placeholder="Enter First Name"/>
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Minit </label>
+                        <input type = "text" name = "minit" class = "form-control" placeholder="Enter Middle Name"/>
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Last </label>
+                        <input type = "text" name = "last" class = "form-control" placeholder="Enter Last Name"/>
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Street </label>
+                        <input type = "text" name = "street" class = "form-control" placeholder="Enter Street"/>
+                    </div>
+
+                    <div class ="form-group">
+                        <label> City </label>
+                        <input type = "text" name = "city" class = "form-control" placeholder="Enter City"/>
+                    </div>
+
+                    <div class ="form-group">
+                        <label> State </label>
+                        <input type = "text" name = "state" class = "form-control" placeholder="Enter State"/>
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Zip </label>
+                        <input type = "text" name = "zip" class = "form-control" placeholder="Enter Zip"/>
+                    </div>
+
+                    <div class ="form-group">
+                        <label> H_ID </label>
+                        <input type = "number" name = "h_id" class = "form-control" placeholder="Enter H_ID"/>
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Conc_ID </label>
+                        <input type = "number" name = "conc_id" class = "form-control" placeholder="Enter Conc_ID"/>
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Za_ID </label>
+                        <input type = "text" name = "za_id" class = "form-control" placeholder="Enter Za_ID"/>
+                    </div>
+
+                    <div class = "box-footer">
+                        <button type="submit" class = "btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

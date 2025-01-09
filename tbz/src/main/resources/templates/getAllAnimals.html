@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Get All Animals</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Turtle Back Zoo</a>
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/index}">Home</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class ="container" >
+    <div class = "text-center">
+        <h1> Animals List</h1>
+    </div>
+    <table class = "table table-striped table-bordered">
+        <thead class = "table-dark">
+            <tr>
+                <th> A_ID </th>
+                <th> Status </th>
+                <th> Birth Year </th>
+                <th> S_ID </th>
+                <th> ID </th>
+                <th> B_ID </th>
+            </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each = "animal: ${getAllAnimals}">
+            <td th:text = "${animal.a_ID}"></td>
+            <td th:text = "${animal.status}"></td>
+            <td th:text = "${animal.birthYear}"></td>
+            <td th:text = "${animal.SId}"></td>
+            <td th:text = "${animal.id}"></td>
+            <td th:text = "${animal.BId}"></td>
+            <td>
+                <a th:href = "@{/editAnimal/{a_id}(a_id=${animal.a_ID})}"
+                   class = "btn btn-primary">Update</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

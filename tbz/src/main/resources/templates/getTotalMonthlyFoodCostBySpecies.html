@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Get Total Monthly Food Cosy By Species</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">Turtle Back Zoo</a>
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/index}">Home</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class ="container" >
+  <div class = "text-center">
+    <h1> Total Monthly Food Cosy By Species List</h1>
+  </div>
+  <table class = "table table-striped table-bordered">
+    <thead class = "table-dark">
+    <tr>
+      <th> Species Name </th>
+      <th> Monthly Food Cost </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each = "c: ${foodCosts}">
+      <td th:text = "${c.speciesName}"></td>
+      <td th:text = "${c.monthlyFoodCost}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

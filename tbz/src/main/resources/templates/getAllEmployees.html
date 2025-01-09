@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Get All Employees</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">Turtle Back Zoo</a>
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/index}">Home</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class ="container" >
+  <div class = "text-center">
+    <h1> Employees List</h1>
+  </div>
+  <table class = "table table-striped table-bordered">
+    <thead class = "table-dark">
+    <tr>
+      <th> E_ID </th>
+      <th> Start Date </th>
+      <th> Job Type </th>
+      <th> First </th>
+      <th> Minit </th>
+      <th> Last </th>
+      <th> Street </th>
+      <th> City </th>
+      <th> State </th>
+      <th> Zip </th>
+      <th> H_ID </th>
+      <th> Conc_ID </th>
+      <th> Za_ID </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each = "employee: ${getAllEmployees}">
+      <td th:text = "${employee.EId}"></td>
+      <td th:text = "${employee.startDate}"></td>
+      <td th:text = "${employee.jobType}"></td>
+      <td th:text = "${employee.first}"></td>
+      <td th:text = "${employee.minit}"></td>
+      <td th:text = "${employee.last}"></td>
+      <td th:text = "${employee.street}"></td>
+      <td th:text = "${employee.city}"></td>
+      <td th:text = "${employee.state}"></td>
+      <td th:text = "${employee.zip}"></td>
+      <td th:text = "${employee.HId}"></td>
+      <td th:text = "${employee.concId}"></td>
+      <td th:text = "${employee.zaId}"></td>
+      <td>
+        <a th:href = "@{/editEmployee/{e_id}(e_id=${employee.EId})}"
+           class = "btn btn-primary">Update</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

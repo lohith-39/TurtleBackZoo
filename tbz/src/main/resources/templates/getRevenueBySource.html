@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Revenue By Source On a Day</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Turtle Back Zoo</a>
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/index}">Home</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class ="container" >
+    <div class = "text-center">
+        <h1> Revenues List</h1>
+    </div>
+    <div class="button-container">
+        <form th:action="@{/getRevenueBySourceByDay}" method="post">
+            <label>Enter Date</label><input type="date" class="form-control" name="date">
+            <button type="submit" class="btn btn-primary custom-button">Get Data</button>
+        </form>
+    </div>
+    <div th:if="${revenueBySource != null}">
+    <table class = "table table-striped table-bordered">
+        <thead class = "table-dark">
+        <tr>
+            <th> R_ID </th>
+            <th> Name </th>
+            <th> Revenue </th>
+            <th> DateColumn </th>
+            <th> Tickets Sold </th>
+            <th> Type </th>
+        </tr>
+
+        <tbody>
+        <tr th:each = "r: ${revenueBySource}">
+            <td th:text = "${r.r_ID}"></td>
+            <td th:text = "${r.name}"></td>
+            <td th:text = "${r.revenue}"></td>
+            <td th:text = "${r.datecolumn}"></td>
+            <td th:text = "${r.ticketsSold}"></td>
+            <td th:text = "${r.type}"></td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+</body>
+</html>

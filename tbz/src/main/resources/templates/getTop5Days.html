@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Top 5 Days</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">Turtle Back Zoo</a>
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/index}">Home</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class ="container" >
+  <div class = "text-center">
+    <h1> Top 5 Days In a Month List</h1>
+  </div>
+  <div class="button-container">
+    <form th:action="@{/getfiveBestDays}" method="post">
+      <label>Enter Year</label><input type="number" class="form-control" name="year">
+      <label>Enter Month</label><input type="number" class="form-control" name="month">
+      <button type="submit" class="btn btn-primary custom-button">Get Data</button>
+    </form>
+  </div>
+  <div th:if="${bestDays != null}">
+  <table class = "table table-striped table-bordered">
+    <thead class = "table-dark">
+    <tr>
+      <th> Revenue Date </th>
+      <th> Total Revenue </th>
+    </tr>
+
+    <tbody>
+    <tr th:each = "day: ${bestDays}">
+      <td th:text = "${day.revenueDate}"></td>
+      <td th:text = "${day.totalRevenue}"></td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+</body>
+</html>

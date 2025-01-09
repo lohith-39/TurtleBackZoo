@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Get All Animal Shows</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Turtle Back Zoo</a>
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/index}">Home</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class ="container" >
+    <div class = "text-center">
+        <h1> Animal Shows List</h1>
+    </div>
+    <table class = "table table-striped table-bordered">
+        <thead class = "table-dark">
+        <tr>
+            <th> AS_ID </th>
+            <th> Senior Price </th>
+            <th> Adult Price </th>
+            <th> Child Price </th>
+            <th> Per Day </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each = "animalShow: ${getAllAnimalShows}">
+            <td th:text = "${animalShow.asId}"></td>
+            <td th:text = "${animalShow.seniorPrice}"></td>
+            <td th:text = "${animalShow.adultPrice}"></td>
+            <td th:text = "${animalShow.childPrice}"></td>
+            <td th:text = "${animalShow.perDay}"></td>
+            <td>
+                <a th:href = "@{/editAnimalShow/{as_id}(as_id=${animalShow.asId})}"
+                   class = "btn btn-primary">Update</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

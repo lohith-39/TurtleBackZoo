@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Revenue Event</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">Turtle Back Zoo</a>
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/index}">Home</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class = "container">
+  <div class = "row">
+    <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+      <h1 class = "text-center"> Update Revenue Event </h1>
+      <div class = "card-body">
+        <form th:action="@{/updateRevenueEvent/{re_id} (re_id=${revenueEvent.reID})}" th:object="${revenueEvent}"  method="post">
+          <div class ="form-group">
+            <label> Revenue </label>
+            <input type = "number" name = "revenue" class = "form-control" placeholder="Enter Revenue"/>
+          </div>
+          <div class ="form-group">
+            <label> Tickets Sold </label>
+            <input type = "number" name = "ticketsSold" class = "form-control" placeholder="Enter Tickets Sold"/>
+          </div>
+          <div class = "box-footer">
+            <button type="submit" class = "btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
